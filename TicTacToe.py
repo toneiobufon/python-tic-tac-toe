@@ -5,12 +5,15 @@ def display_board(board):
     print(board[4] +  '|' + board[5] +  '|' + board[6])
     print('------')
     print(board[7] +  '|' + board[8]+  '|' + board[9])
+    print('\n')
+
 
 #created a test list for display_board
 #filled board
-# test_board = ['#','X','O','X','O','X','O','X','O','X']
+test_board = ['#','1','2','3','4','5','6','7','8','9']
 #empty board
-test_board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+# test_board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+print("This is the play board \n" )
 display_board(test_board)
 
 #step2, write a function that can take a player input and assign their option
@@ -31,9 +34,14 @@ def player_input():
 
     else:
         player2 = 'X'
-    print('player 1 :', player1,   '  player 2 :', player2)
+    
+    #print players choices
+    print('Player 1 :', player1,   '  Player 2 :', player2) 
     
     
     return player1, player2
 
 player_input() 
+
+
+#Step 3, 
