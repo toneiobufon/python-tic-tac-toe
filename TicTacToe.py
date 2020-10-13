@@ -44,4 +44,15 @@ def player_input():
 player_input() 
 
 
-#Step 3, 
+#Step 3, a function that takes input from user, it must be 1-9 and then assign a mark based on the number chosen
+def place_marker(board, choice, position):
+    display_board(board)
+    print('\n'*3)
+    # play_board = []
+
+    position = int(input('Player 1, you start, pick a number between 1 and 9'))
+    
+    test_board[position] = player_input() 
+
+    return display_board(test_board)
+place_marker(test_board, 'X', '9')
