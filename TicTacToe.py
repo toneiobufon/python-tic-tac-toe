@@ -50,7 +50,7 @@ def place_marker(board, choice, position):
     board[position] = choice
 
 place_marker(test_board, 'X', 9)
-place_marker(test_board, 'O', 8)
+place_marker(test_board, 'X', 8)
 place_marker(test_board, 'X', 7)
 
 display_board(test_board)
@@ -80,4 +80,15 @@ def win_check(board,choice):
     #no winner yet
 
     return "not a winner yet"
+   
 print(win_check(test_board,'X'))
+print('\n'*3)
+
+#step 5, write a function that decides ramdonly which player goes first. using the random module
+import random
+
+def random_player():
+    players = ["player 1", "player 2"]
+    first = print('You go first: ', random.choice(players))
+    return first
+random_player()
