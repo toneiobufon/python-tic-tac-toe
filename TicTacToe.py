@@ -99,6 +99,8 @@ def space_check(board, position):
     return board[position] == ''
 
 print(space_check(test_board, 3))
+print('\n'*3)
+
 
 # step 7, check if the board is full and return a boolean
 def full_board_check(board):
@@ -106,6 +108,21 @@ def full_board_check(board):
         if space_check(board, i):
             return False
     return True
-test_board = ['#','1','2','3','4','5','6','7','8','9']
+test_board = ['#','1','2','3','','5','6','7','8','9']
 
 print(full_board_check(test_board))
+print('\n'*3)
+
+
+#step 8, write a function that asks a player's next position (from 1-9) and then uses the fucntion in step 6 to check empty space
+#if so, return position for later use
+
+def player_choice(board):
+    position = 0
+
+    while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
+        position = int(input('Pick your next position from 1-9   '))
+        
+    return 'your position is :', position      
+
+print(player_choice(test_board))
