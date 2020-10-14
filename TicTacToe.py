@@ -40,6 +40,7 @@ def player_input():
     
     
     return player1, player2
+    print('\n' *2)
 
 player_input() 
 
@@ -48,5 +49,35 @@ player_input()
 def place_marker(board, choice, position):
     board[position] = choice
 
-place_marker(test_board, 'O', 9)
+place_marker(test_board, 'X', 9)
+place_marker(test_board, 'O', 8)
+place_marker(test_board, 'X', 7)
+
 display_board(test_board)
+
+
+#step 4, a function that takes in a board and choice (x or o ) and checks if that choice has won
+
+def win_check(board,choice):
+    #to check if there if a winner
+    #check if rows have same choice
+    if ((board[1]== board[2] == board[3] == choice) or
+        (board[4]== board[5] == board[6] == choice) or 
+        (board[7]== board[8] == board[9] == choice) or 
+        
+    #check if columns have same choice 
+        (board[1]== board[4] == board[7] == choice) or 
+        
+        (board[2]== board[5] == board[8] == choice) or 
+        
+        (board[3]== board[7] == board[9] == choice) or
+        
+    #check if diagonals have same choice
+        (board[1]== board[5] == board[9] == choice) or
+        (board[3]== board[5] == board[7] == choice)):
+        return "Congratulations, you won the game!"
+
+    #no winner yet
+
+    return "not a winner yet"
+print(win_check(test_board,'X'))
