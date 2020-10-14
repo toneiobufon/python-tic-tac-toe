@@ -10,7 +10,7 @@ def display_board(board):
 
 #created a test list for display_board
 #filled board
-test_board = ['#','1','2','3','4','5','6','7','8','9']
+test_board = ['#','1','2','','4','5','6','7','8','9']
 #empty board
 # test_board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
 print("This is the play board \n" )
@@ -92,3 +92,10 @@ def random_player():
     first = print('You go first: ', random.choice(players))
     return first
 random_player()
+
+#step 6, write a function that returns a boolean indicating wheter a space on the board is freely available
+
+def space_check(board, position):
+    return board[position] == ''
+
+print(space_check(test_board, 3))
