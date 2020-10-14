@@ -10,7 +10,7 @@ def display_board(board):
 
 #created a test list for display_board
 #filled board
-test_board = ['#','1','2','','4','5','6','7','8','9']
+test_board = ['#','1','','3','4','5','6','7','8','9']
 #empty board
 # test_board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
 print("This is the play board \n" )
@@ -99,3 +99,13 @@ def space_check(board, position):
     return board[position] == ''
 
 print(space_check(test_board, 3))
+
+# step 7, check if the board is full and return a boolean
+def full_board_check(board):
+    for i in range(1,10):
+        if space_check(board, i):
+            return False
+    return True
+test_board = ['#','1','2','3','4','5','6','7','8','9']
+
+print(full_board_check(test_board))
