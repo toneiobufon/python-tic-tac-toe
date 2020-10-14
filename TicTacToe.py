@@ -126,3 +126,13 @@ def player_choice(board):
     return 'your position is :', position      
 
 print(player_choice(test_board))
+print('\n'*3)
+
+
+#step 9, write a function that asks a player if they want to play again and returns a boolean True if they do
+def replay():
+    rep = input('Play again Y or N  ').upper()
+
+    return rep == 'Y'
+
+print(replay())
