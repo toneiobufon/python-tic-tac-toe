@@ -24,9 +24,9 @@ def player_input():
     choice = ''
 
     
-    while choice != 'X' and choice != 'O':
+    while not ( choice == 'X' or choice == 'O'):
         
-        choice = input('Player1, choose X or O:  ').upper()
+        choice = input('Player 1, choose X or O:  ').upper()
         print('\n')
 
     
@@ -124,9 +124,9 @@ def player_choice(board):
 
 #step 9, write a function that asks a player if they want to play again and returns a boolean True if they do
 def replay():
-    rep = input('Play again Y or N  ').upper()
 
-    return rep == 'Y'
+    return input('Play again Y or N  ').lower().startswith('y')
+
 
 # print(replay())
 
