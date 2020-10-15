@@ -81,9 +81,13 @@ def win_check(board,choice):
 import random
 
 def random_player():
-    players = ["player 1", "player 2"]
-    first = print('You go first: ', random.choice(players))
-    return first
+    # players = ["player 1", "player 2"]
+    # first = print('You go first: ', random.choice(players))
+    # return first
+    if random.randint(0,1) == 0:
+        return 'Player 2'
+    else:
+        return 'Player 1'
 # random_player()
 
 #step 6, write a function that returns a boolean indicating wheter a space on the board is freely available
