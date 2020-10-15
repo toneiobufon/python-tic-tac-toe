@@ -21,16 +21,16 @@ def display_board(board):
 # X or O, use while loop to ask until you get the right answer
 
 def player_input():
-    choice = ''
+    mark = ''
 
     
-    while not ( choice == 'X' or choice == 'O'):
+    while not (mark == 'X' or mark == 'O'):
         
-        choice = input('Player 1, choose X or O:  ').upper()
+        mark = input('choose X or O:  ').upper()
         print('\n')
 
     
-    if choice == 'X':
+    if mark == 'X':
         return ('X', 'O')
 
     else:
@@ -39,8 +39,8 @@ def player_input():
 
 
 #Step 3, a function that takes input from user, it must be 1-9 and then assign a mark based on the number chosen
-def place_marker(board, choice, position):
-    board[position] = choice
+def place_marker(board, mark, position):
+    board[position] = mark
     
 
 # place_marker(test_board, 'X', 9)
@@ -52,35 +52,24 @@ def place_marker(board, choice, position):
 
 #step 4, a function that takes in a board and choice (x or o ) and checks if that choice has won
 
-def win_check(board,choice):
+def win_check(board,mark):
     #to check if there if a winner
     #check if rows have same choice
-    if ((board[1]== board[2] == board[3] == choice) or
-        (board[4]== board[5] == board[6] == choice) or 
-        (board[7]== board[8] == board[9] == choice) or 
-        
-    #check if columns have same choice 
-        (board[1]== board[4] == board[7] == choice) or 
-        
-        (board[2]== board[5] == board[8] == choice) or 
-        
-        (board[3]== board[7] == board[9] == choice) or
-        
-    #check if diagonals have same choice
-        (board[1]== board[5] == board[9] == choice) or
-        (board[3]== board[5] == board[7] == choice)):
-        return "Congratulations, you won the game!"
-
-    #no winner yet
-
-    return "not a winner yet"
+    return ((board[7] == board[8] == board[9] == mark) or # across the top
+    (board[4] == mark and board[5] == mark and board[6] == mark) or # across the middle
+    (board[1] == mark and board[2] == mark and board[3] == mark) or # across the bottom
+    (board[7] == mark and board[4] == mark and board[1] == mark) or # down the middle
+    (board[8] == mark and board[5] == mark and board[2] == mark) or # down the middle
+    (board[9] == mark and board[6] == mark and board[3] == mark) or # down the right side
+    (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
+    (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
 # print(win_check(test_board,'X'))
 # print('\n'*3)
 
 #step 5, write a function that decides ramdonly which player goes first. using the random module
 import random
 
-def random_player():
+def choose_first():
     # players = ["player 1", "player 2"]
     # first = print('You go first: ', random.choice(players))
     # return first
@@ -139,15 +128,16 @@ print('\n'*5)
 print('Welcome to Tic Tac Toe!')
 print('\n'*5)
 while True:
-    #reset board
+    # #reset board
     myBoard = [' '] * 10
     player1_choice, player2_choice = player_input()
-    turn = random_player()
-    # print(turn + 'will go first')
+    turn = choose_first()
+    print(turn + ' will go first')
+    print('\n')
     
-    play_game = input('Are you ready to play, Y or N   ').upper()
+    play_game = input('Are you ready to play, Y or N ?    ').upper()
 
-    if play_game[0] == 'Y':
+    if play_game == 'Y':
         game_on = True
     else:
         game_on = False
@@ -161,6 +151,7 @@ while True:
 
             if win_check(myBoard, player1_choice):
                 display_board(myBoard) 
+                print('Congratulations! You have won the game!')
                 game_on = False
             else:
                 if full_board_check(myBoard):
@@ -189,5 +180,4 @@ while True:
     if not replay():
         print('Thanks for playing')
         break
-
 
