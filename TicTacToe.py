@@ -186,6 +186,8 @@ while True:
                     turn = 'Player 1'
         
     if not replay():
+        print('\n')
         print('Thanks for playing')
+        print('\n')
         break
 
