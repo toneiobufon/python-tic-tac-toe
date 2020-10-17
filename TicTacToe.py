@@ -142,23 +142,31 @@ while True:
     else:
         game_on = False
 
+    #GAME PLAY
     while game_on:
         #player 1 turn
         if turn == "Player 1":
+            #show the board
             display_board(myBoard)
+            #choose a position
             position = player_choice(myBoard)
+            #place marker on the position
             place_marker(myBoard, player1_choice, position)
 
+            #check if player won
             if win_check(myBoard, player1_choice):
                 display_board(myBoard) 
                 print('Congratulations! You have won the game!')
+                print("\n")
                 game_on = False
             else:
+                #check game is a tie
                 if full_board_check(myBoard):
                     display_board(myBoard)
                     print('The game is a draw')
                     break
                 else:
+                    #next players turn 
                     turn = 'Player 2'
         else:
             #player 2 turn
